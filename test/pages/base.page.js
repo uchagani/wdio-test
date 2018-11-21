@@ -1,5 +1,8 @@
-export default class BasePage {
-    open (path) {
-        browser.url(path)
-    }
+function BasePage () {
 }
+
+BasePage.prototype.open = function (path) {
+    browser.url(path)
+};
+
+module.exports = new BasePage();

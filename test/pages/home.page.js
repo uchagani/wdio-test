@@ -1,19 +1,24 @@
-import BasePage from './base.page';
+var BasePage = require('./base.page');
 
-class HomePage extends BasePage {
+var HomePage = Object.create(BasePage, {
 
-    get description() {
-        return browser.element('#What-is-WebdriverIO');
+    navHome: {
+        get: function () {
+            return browser.element('a[href="/"]');
+        }
+    },
+
+    description: {
+        get: function () {
+            return browser.element('#What-is-WebdriverIO');
+        }
+    },
+
+    open: {
+        value: function () {
+            BasePage.open.call(this, '/');
+        }
     }
+});
 
-    get navHome() {
-        return browser.element('a[href="/"]')
-    }
-
-    open() {
-        super.open('/');
-    }
-
-}
-
-export default new HomePage();
+module.exports = HomePage;

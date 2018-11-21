@@ -1,20 +1,10 @@
-import HomePage from '../pages/home.page'
-
 var expect = require('chai').expect;
+var HomePage = require('../pages/home.page');
 
-describe('home page', () => {
-
-    // beforeEach(() => {
-    //     browser.reload();
-    //     HomePage.open();
-    // });
-
-    it('should show a description of what WebDriverIO is', () => {
+describe('Home page', function () {
+    it('should show a description of what WebDriverIO is', function () {
         HomePage.open();
         expect(HomePage.description.getText()).to.contain('What is WebdriverIO?');
     });
 
-    // it('should contain a Home Link in the Navigation Bar', () => {
-    //     expect(HomePage.navHome.getText().to.equal('Home'))
-    // })
 });
